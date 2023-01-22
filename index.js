@@ -18,5 +18,4 @@ app.use(bodyParser.json());
 app.use("/api", Routes);
 
 app.listen(port, function(){
-	console.log(`Server running in http://localhost:${port}`);
 });
