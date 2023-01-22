@@ -4,7 +4,6 @@ require('dotenv').config();
 const conn =  new Sequelize(process.env.DATABASE, process.env.USER, process.env.PASSWORD, {
     host: process.env.HOST, 
     dialect: 'mysql',
-    logging: false
 })
 
 try {
