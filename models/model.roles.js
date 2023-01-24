@@ -18,7 +18,6 @@ Roles.associations = function(models) {
     })
 })
 
-Roles.sync({force: false})
 
 module.exports = Roles;
 

@@ -1,6 +1,6 @@
 const  Router = require("express");
 const { Login, CreateUserFile } = require('../controllers/auth.controller')
-const {ObtenerAllEmp, CrearEmp, UpdateEmp, DeleteEmp, DatosEmp} = require('../controllers/emp.controller')
+const {ObtenerAllEmp, CrearEmp, UpdateEmp, DeleteEmp, DatosEmp, ActiveEmp} = require('../controllers/emp.controller')
 const multer = require('multer');
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
@@ -27,4 +27,5 @@ router.use((req, res, next) => {
   //* Rutas put
   router.put('/updateEmp/:id', UpdateEmp)
   router.put('/deleteEmp/:id', DeleteEmp)
+  router.put('/activEmp/:id', ActiveEmp)
   module.exports = router

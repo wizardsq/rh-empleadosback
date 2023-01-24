@@ -1,13 +1,11 @@
 const { Sequelize  } = require('sequelize')
 require('dotenv').config();
 
-const conn =  new Sequelize(process.env.DATABASE, process.env.USER, process.env.PASSWORD, 
-    {
+const conn =  new Sequelize(process.env.DATABASE, process.env.USER, process.env.PASSWORD, {
     host: process.env.HOST, 
     port: process.env.DB_PORT,
     dialect: 'mysql',
-}
-)
+})
 
 try {
     conn.authenticate()

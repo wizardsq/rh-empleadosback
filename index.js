@@ -1,8 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-//const conexion = require('./BD/conecction')
-//const Usuarios = require('./models/models.usuarios')
 const Routes = require("./routes/routes")
 require('dotenv').config();
 

@@ -33,8 +33,6 @@ Usuarios.init({
     modelName: 'usuarios'
 })
 
-Usuarios.sync({force: false})
-
 module.exports = Usuarios;
 
 

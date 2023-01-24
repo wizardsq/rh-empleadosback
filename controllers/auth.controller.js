@@ -38,7 +38,6 @@ require('dotenv').config();
         const workbook = XLSX.read(file.buffer, { type: 'buffer' });
         const sheet = workbook.Sheets[workbook.SheetNames[0]];
         const data = XLSX.utils.sheet_to_csv(sheet);
-        console.log(data)
         const sql = GenerarSQL_csv(data)
 
         empleados.sequelize.query(sql).then(resp => {

@@ -74,6 +74,14 @@ const DeleteEmp = async (req, res) => {
     catch((err) => console.log(err))
 }
 
+const ActiveEmp = async (req, res) => {
+    const ActivEmp = req.body
+    console.log(ActivEmp)
+    empleados.update(ActivEmp, {where: {id: req.params.id}}).
+    then(() => res.sendStatus(200)).
+    catch((err) => console.log(err))
+}
+
 const DatosEmp = async (req, res) => {
     empleados.findAll({attributes: ['Genero', 'T_cont_administrativo', 'Grado_academico', 'Rec_dependiente', 'Fac_dept', 'Centro_trabajo', 'Nacionalidad', 'Estado_Civil', 'Tipo_contrato', 'Edad', 'A_servicio'] }).
     then((dato) => {
@@ -84,4 +92,4 @@ const DatosEmp = async (req, res) => {
     })
 }
 
-module.exports = { ObtenerAllEmp, CrearEmp, UpdateEmp, DeleteEmp, DatosEmp }
+module.exports = { ObtenerAllEmp, CrearEmp, UpdateEmp, DeleteEmp, DatosEmp, ActiveEmp }
