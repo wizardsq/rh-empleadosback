@@ -1,3 +1,4 @@
+const { sequelize } = require('../models/models.empleados')
 const empleados = require('../models/models.empleados')
 
 
@@ -92,4 +93,13 @@ const DatosEmp = async (req, res) => {
     })
 }
 
-module.exports = { ObtenerAllEmp, CrearEmp, UpdateEmp, DeleteEmp, DatosEmp, ActiveEmp }
+const InfoEmp = async (req, res) => {
+    sequelize.query(['CALL InfoEmpleados();']).then(function(response){
+        console.log(response[0])
+        res.json(response[0])
+    }).catch(function(err){
+        console.log(err)
+    })
+}
+
+module.exports = { ObtenerAllEmp, CrearEmp, UpdateEmp, DeleteEmp, DatosEmp, ActiveEmp, InfoEmp }
