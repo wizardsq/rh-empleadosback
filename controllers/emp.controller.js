@@ -94,12 +94,21 @@ const DatosEmp = async (req, res) => {
 }
 
 const InfoEmp = async (req, res) => {
-    sequelize.query(['CALL InfoEmpleados();']).then(function(response){
-        console.log(response[0])
-        res.json(response[0])
-    }).catch(function(err){
-        console.log(err)
+    empleados.findAll({
+        attributes: [
+            [sequelize.fn('COUNT', sequelize.col('*')), 'Total de empleados'],
+            [sequelize.fn('SUM', sequelize.literal('Nacionalidad = "MEXICANA"')), 'Total Empleados Mexicanos'],
+            [sequelize.fn('SUM', sequelize.literal('Nacionalidad != "MEXICANA"')), 'Total Empleados Extranjeros'],
+            [sequelize.fn('SUM', sequelize.literal('Genero = "M"')), 'Total Empleados Hombres'],
+            [sequelize.fn('SUM', sequelize.literal('Genero = "F"')), 'Total Empleados Mujeres'],
+        ]
     })
+    .then(results => {
+        res.json(results[0])
+    })
+    .catch(error => {
+        console.log(error);
+    });
 }
 
 module.exports = { ObtenerAllEmp, CrearEmp, UpdateEmp, DeleteEmp, DatosEmp, ActiveEmp, InfoEmp }
