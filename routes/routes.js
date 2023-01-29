@@ -1,6 +1,6 @@
 const  Router = require("express");
 const { Login, CreateUserFile } = require('../controllers/auth.controller')
-const {ObtenerAllEmp, CrearEmp, UpdateEmp, DeleteEmp, DatosEmp, ActiveEmp, InfoEmp} = require('../controllers/emp.controller')
+const {ObtenerAllEmp, ObtenerAllEmpAct, CrearEmp, UpdateEmp, DeleteEmp, DatosEmp, ActiveEmp, InfoEmp, ObtenerAllEmpInac} = require('../controllers/emp.controller')
 const multer = require('multer');
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
@@ -16,12 +16,14 @@ router.use((req, res, next) => {
   });
   
   //* Rutas Post
-  router.post("/login", Login);
-  router.post("/createusf", upload.single('file'), CreateUserFile)
-  router.post("/createmp", CrearEmp)
+  router.post('/login', Login);
+  router.post('/createusf', upload.single('file'), CreateUserFile)
+  router.post('/createmp', CrearEmp)
 
   //* Rutas Get
-  router.get("/empleados", ObtenerAllEmp)
+  router.get('/Allempleados', ObtenerAllEmp)
+  router.get('/empleados', ObtenerAllEmpAct)
+  router.get('/empleadosin', ObtenerAllEmpInac)
   router.get('/info', InfoEmp)
   router.get('/datos', DatosEmp)
 

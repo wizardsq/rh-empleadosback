@@ -45,7 +45,9 @@ class Empleado extends Model {}
     Tipo_contrato: DataTypes.STRING(30),
     Edad: DataTypes.INTEGER(3),
     A_servicio: DataTypes.INTEGER(3),
-    Activo: DataTypes.BOOLEAN
+    Activo: DataTypes.BOOLEAN,
+    FechaRetiro: DataTypes.DATEONLY,
+    CausaRetiro: DataTypes.STRING(50)
 }, {
     sequelize: conn,
     modelName: 'empleado'
