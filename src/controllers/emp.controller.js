@@ -77,7 +77,6 @@ const CrearEmp = async (req, res) => {
 }
 
 const UpdateEmp = async (req, res) => {
-    
     const updateEmp = {
         Nomina: req.body.Nomina,
         Nombre: req.body.Nombre,

@@ -1,5 +1,5 @@
 const  Router = require("express");
-const { Login, CreateUserFile } = require('../controllers/auth.controller')
+const { Login, CreateUserFile, CreateUser } = require('../controllers/auth.controller')
 const {ObtenerAllEmp, ObtenerAllEmpAct, CrearEmp, UpdateEmp, DeleteEmp, DatosEmp, ActiveEmp, InfoEmp, ObtenerAllEmpInac} = require('../controllers/emp.controller')
 const multer = require('multer');
 const storage = multer.memoryStorage();
@@ -17,6 +17,7 @@ router.use((req, res, next) => {
   
   //* Rutas Post
   router.post('/login', Login);
+  router.post('/crearuser', CreateUser)
   router.post('/createusf', upload.single('file'), CreateUserFile)
   router.post('/createmp', CrearEmp)
 
