@@ -16,4 +16,5 @@ app.use(bodyParser.json());
 app.use("/api", Routes);
 
 app.listen(port, function(){
+    console.log("Servidor corriendo en el puerto: " + port);
 });

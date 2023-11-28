@@ -9,6 +9,7 @@ require('dotenv').config();
 
 // Funcion de flecha para la autenticacion y generacion de un token para el login
 const Login = async (req, res) => {
+    console.log('hola',req.body)
     try {
         const user = await usuarios.findOne({ where: { correo: req.body.correo } })
 
@@ -25,7 +26,7 @@ const Login = async (req, res) => {
             expiresIn: 86400
         })
         const rol = user.ID_rol
-
+        console.log(res)
         res.status(200).json({ token, rol })
     } catch (err) {
         console.log(err)

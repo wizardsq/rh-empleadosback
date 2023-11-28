@@ -69,7 +69,7 @@ const CrearEmp = async (req, res) => {
         }).catch((err) => {
             console.log(err)
             res.sendStatus(401)
-        })
+        }) 
     } catch (err) {
         console.log(err)
         res.sendStatus(500)

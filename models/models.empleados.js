@@ -1,8 +1,14 @@
-const { Model, DataTypes,  } = require('sequelize')
+const { Model, DataTypes  } = require('sequelize')
 const conn = require('../BD/conecction')
 
 class Empleado extends Model {}
  Empleado.init({
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false
+    },
     Nomina: {
         type: DataTypes.BIGINT,
         allowNull: false
